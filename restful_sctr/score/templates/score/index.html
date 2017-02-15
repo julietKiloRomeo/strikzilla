@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>StrikZilla</title>
+
+    <!-- <meta name="viewport" content="width=300, initial-scale=1.0, maximum-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Loading Bootstrap -->
+    <link href="{% static  "dist/css/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="{% static  "dist/css/flat-ui.css" %}" rel="stylesheet">
+    <link href="{% static  "docs/assets/css/demo.css" %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static  "img/yarn.png" %}">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/vendor/html5shiv.js"></script>
+      <script src="dist/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+
+<style>
+
+span.step {
+  background: #cccccc;
+  border-radius: 1.5em;
+  -moz-border-radius: 1.5em;
+  -webkit-border-radius: 1.5em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 3.0em;
+  margin-right: 5px;
+  text-align: center;
+  width: 3.0em;
+}
+
+span.inv {
+  border-radius: 1.5em;
+  -moz-border-radius: 1.5em;
+  -webkit-border-radius: 1.5em;
+  display: inline-block;
+  line-height: 3.0em;
+  margin-right: 5px;
+  text-align: center;
+  width: 3.0em;
+}
+
+</style>
+
+
+
+
+
+  </head>
+  <body>
+<div class="container-fluid">
+      <div class="demo-headline">
+        <h1 class="demo-logo">
+<!--          <div class="logo"></div> -->
+          StrikZilla
+          <small>Calculator</small>
+        </h1>
+      </div> <!-- /demo-headline -->
+
+    <form>
+      <div class="row demo-row">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <input type="integer" value="{{before}}" name="before" class="form-control" style="text-align:right;" />
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <button type="submit"  class="btn btn-block btn-lg btn-primary" method="post" action=".">to</button>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <input type="integer" value="{{after}}" name="after" class="form-control" />
+          </div>
+        </div>
+      </div> <!-- /row -->
+    </form>
+
+
+{% if n_start > 0 %}
+	<div class="row">
+	      <div class="col-xs-4"></div>
+	      <div class="col-xs-1"> <span class="inv">{{ n_start }} </span> </div>
+	      <div class="col-xs-1"> <span class="step" data-toggle="tooltip" data-placement="left" title="Knit {{ p }}
+ + 1">{{ p }} </span> </div>
+	</div>
+  {% endif %}
+
+	<div class="row">
+	      <div class="col-xs-4"></div>
+	      <div class="col-xs-1"> <span class="inv">{{ n_middle }}</span> </div>
+	      <div class="col-xs-1"> <span class="step" data-toggle="tooltip" data-placement="left" title="Knit {{ p }} + 1">{{ p }}</span> </div>
+	      <div class="col-xs-2"> <span class="step" data-toggle="tooltip" data-placement="right" title="Knit {{ q }} + 1">{{ q }}</span> </div>
+	</div>
+
+{% if n_end > 0 %}
+	<div class="row">
+	      <div class="col-xs-4"></div>
+	      <div class="col-xs-1"> <span class="inv">{{ n_end }}</span> </div>
+	      <div class="col-xs-1"> <span class="step" data-toggle="tooltip" data-placement="left" title="Knit {{ p }} + 1">{{ p }}</span> </div>
+	</div>
+  {% endif %}
+
+
+
+
+
+
+  </div> <!-- /row -->
+
+    <footer>
+    </footer>
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+    <script src="docs/assets/js/application.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip('hide');
+    });
+</script>
+
+
+  </body>
+</html>
